@@ -1,0 +1,200 @@
+<div
+  class="main-container container d-flex flex-column align-items-center p-4 gap-4"
+>
+  <div
+    class="user-container col-md-10 col-sm-10 d-flex flex-column align-items-center"
+    style="min-height: 200px"
+  >
+    <div>
+      <form
+        class="d-flex flex-column align-items-center w-100"
+        style="min-width: 50vw"
+        role="search"
+      >
+        <div class="col-10 d-flex">
+          <input
+            class="form-control me-2 flex-grow-1"
+            type="search"
+            placeholder="Search for Existing User"
+            aria-label="Search User"
+            (input)="filterUsers()"
+            name="key"
+            [(ngModel)]="key"
+          />
+          <button
+            class="btn btn-success"
+            id="bt0"
+            type="button"
+            (click)="addUser()"
+            [disabled]="!isadduserallowed"
+          >
+            <i class="bx bx-user-plus" style="font-size: 1.5rem"></i>
+          </button>
+        </div>
+        <small
+          *ngIf="filteredUsers && (!selectedUser || key)"
+          class="text-danger pt-2"
+          >If you don't find the user in the list, proceed to add</small
+        >
+        <div
+          class="col-4 align-self-start border p-2 mt-6"
+          style="
+            z-index: 1050 !important;
+            position: absolute;
+            top: 18%;
+            left: 31%;
+            background-color: rgb(250, 250, 250);
+            list-style: none;
+            min: width 40vw;
+          "
+          *ngIf="filteredUsers.length > 0 && (!selectedUser || key)"
+        >
+          <div *ngFor="let user of filteredUsers" class="d-flex gap-2">
+            <div (click)="select(user)" class="w-100 align-items-center">
+              <span>{{ user.firstName }} {{ user.lastName }}</span>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      class="col-md-6 col-sm-10 d-flex flex-column align-items-center"
+      *ngIf="selectedUser"
+    >
+      <p class="mt-4" style="color: #1a972d">-------- Selected user --------</p>
+      <div
+        class="d-flex flex-column w-100 justify-content-center align-items-center"
+      >
+        <div class="d-flex align-items-center">
+          <i
+            class="bx bxs-user-circle"
+            style="color: #ae59f0; font-size: 2rem; margin: 0px 0.5rem"
+          ></i>
+          <p style="margin-top: 10px; font-size: 24px">
+            {{ selectedUser.firstName }} {{ selectedUser.lastName }}
+          </p>
+        </div>
+        <div class="d-flex gap-4 align-self-center">
+          <div class="d-flex align-items-center">
+            <i
+              class="bx bxs-phone"
+              style="color: #0f1011; font-size: 1.2rem; margin: 0px 0.5rem"
+            ></i>
+            <p style="margin-top: 10px; font-size: 18px; color: gray">
+              {{ selectedUser.mobileNumber }}
+            </p>
+          </div>
+          <div class="d-flex align-items-center">
+            <i
+              class="bx bx-building-house"
+              style="
+                color: rgba(15, 16, 17, 0.74);
+                font-size: 1.2rem;
+                margin: 0px 0.5rem;
+              "
+            ></i>
+            <p style="margin-top: 10px; font-size: 18px; color: gray">
+              {{ selectedUser.address.village }}
+              {{ selectedUser.address.city }},{{ selectedUser.address.pincode }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="btn align-self-end mx-4" *ngIf="selectedUser">
+        <button class="btn">
+          <i
+            class="bx bx-edit-alt"
+            style="color: rgba(65, 62, 62, 0.74); font-size: 1.5rem"
+          ></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="col-6 cart-caontainer d-flex flex-column align-items-center"
+    style="min-width: 80vw"
+  >
+    <form role="search" class="w-100 d-flex">
+      <input
+        class="form-control me-2 flex-grow-1"
+        type="search"
+        placeholder="Search Product"
+        aria-label="Search Product"
+      />
+      <input
+        class="form-control me-2 w-25"
+        type="number"
+        placeholder="Quantity"
+        aria-label="Quantity"
+        min="1"
+      />
+      <button class="btn btn-success" type="button">
+        <i class="bx bx-cart-add" style="color: #f7f0fc; font-size: 2rem"></i>
+      </button>
+    </form>
+
+    <!-- Product Search ends here  -->
+
+    <div class="col-12 justify-self-center align-self-center">
+      <table
+        class="table"
+        style="border: 2px solid; text-align: center; margin-top: 2rem"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Sr No.</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total &#x20B9;</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider text-align-center">
+          <tr>
+            <th scope="row">1</th>
+            <td>Uria</td>
+            <td>2800</td>
+            <td>2</td>
+            <td>5600</td>
+            <td>
+              <button type="button" class="btn p-0">
+                <i
+                  class="bx bxs-trash"
+                  style="color: #fc3e3e; font-size: 1.8rem"
+                ></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot style="text-align: end; border: 3px solid rebeccapurple">
+          <tr>
+            <td colspan="4">Total Amount :</td>
+            <td colspan="1" style="text-align: center">
+              <strong>5600</strong>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!--  table ends here  -->
+
+    <div
+      class="d-flex align-items-center justify-content-end col-12 align-self-center"
+    >
+      <button
+        type="button"
+        class="btn mx-2"
+        style="background-color: #ae59f0; color: white"
+      >
+        Pay Later
+      </button>
+      <button type="button" class="btn btn-primary mx-2">Proceed to Pay</button>
+    </div>
+
+    <!-- Action buttons ends here  -->
+  </div>
+</div>

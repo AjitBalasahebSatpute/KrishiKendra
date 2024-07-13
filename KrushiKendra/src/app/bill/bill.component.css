@@ -1,0 +1,36 @@
+div {
+    transition: all 05s linear;
+}
+.custom-dialog-container{
+    z-index: 2000;
+    position: relative;
+    background-color: white;
+}
+.ng-deepmat-mdc-dialog-surface{
+    background-color: white;
+}
+
+.custom-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.custome-user{
+
+}
+
+#bt0{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#bt0:disabled{
+    cursor: not-allowed;
+    color: rgba(245, 245, 245, 0.699);
+    background-color: gray
+}
