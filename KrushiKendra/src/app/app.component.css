@@ -1,0 +1,10 @@
+.main-contianer{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.profile button{
+    border: none;
+    background: transparent;
+}

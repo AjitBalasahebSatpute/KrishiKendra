@@ -5,7 +5,7 @@
     class="user-container col-md-10 col-sm-10 d-flex flex-column align-items-center"
     style="min-height: 200px"
   >
-    <div>
+    <!-- <div>
       <form
         class="d-flex flex-column align-items-center w-100"
         style="min-width: 50vw"
@@ -21,15 +21,7 @@
             name="key"
             [(ngModel)]="key"
           />
-          <button
-            class="btn btn-success"
-            id="bt0"
-            type="button"
-            (click)="addUser()"
-            [disabled]="!isadduserallowed"
-          >
-            <i class="bx bx-user-plus" style="font-size: 1.5rem"></i>
-          </button>
+          
         </div>
         <small
           *ngIf="filteredUsers && (!selectedUser || key)"
@@ -58,10 +50,42 @@
         </div>
       </form>
     </div>
+    -->
+      <div class=" w-100 d-flex align-items-center gap-2 justify-content-center align-items-center">
+
+        <div class="w-50 m-0 p-0">
+          <form class="example-form m-0">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search for existing user</mat-label>
+              <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="select($event)"  >
+                @for (option of filteredOptions | async; track option) {
+                  <mat-option [value]="option" >{{option.firstName}} {{option.lastName}}</mat-option>
+                }
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+        </div>
+   
+        <div class="p-0 mb-3">
+          <button
+          class="btn btn-success"
+          id="bt0"
+          type="button"
+          matTooltip="Add New user"
+        [matTooltipPosition]="'after'"
+          (click)="addUser()"
+        >
+          <i class="bx bx-user-plus" style="font-size: 1.5rem"></i>
+        </button>
+        </div>
+</div>
+
+    <!-- user search secton ends here  -->
     <div
       class="col-md-6 col-sm-10 d-flex flex-column align-items-center"
       *ngIf="selectedUser"
-    >
+    > 
       <p class="mt-4" style="color: #1a972d">-------- Selected user --------</p>
       <div
         class="d-flex flex-column w-100 justify-content-center align-items-center"
@@ -112,6 +136,7 @@
     </div>
   </div>
 
+  <!-- selected user ends here  -->
   <div
     class="col-6 cart-caontainer d-flex flex-column align-items-center"
     style="min-width: 80vw"
@@ -130,7 +155,8 @@
         aria-label="Quantity"
         min="1"
       />
-      <button class="btn btn-success" type="button">
+      <button class="btn btn-success" type="button" matTooltip="add new product to list"
+      [matTooltipPosition]="'above'">
         <i class="bx bx-cart-add" style="color: #f7f0fc; font-size: 2rem"></i>
       </button>
     </form>
@@ -192,7 +218,9 @@
       >
         Pay Later
       </button>
-      <button type="button" class="btn btn-primary mx-2">Proceed to Pay</button>
+      <button type="button" class="btn btn-primary mx-2" 
+      matTooltip="make payment"
+      [matTooltipPosition]="'below'">Proceed to Pay</button>
     </div>
 
     <!-- Action buttons ends here  -->
