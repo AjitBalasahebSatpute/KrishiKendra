@@ -1,4 +1,20 @@
 .product-section{
-    max-height: 350px;
+    width: 100%;
+    height: 325px;
+    /* padding:0rem 3rem ; */
     /* overflow: hidden; */
+    background-color: transparent;
+    overflow: scroll;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+}
+
+.product-list{
+    height: 100%;
+padding: 0px 1rem 0 3rem;
+display: flex  !important;
+gap: 1rem;
+justify-content: center;
+align-items: center;
+overflow-x: scroll;
 }

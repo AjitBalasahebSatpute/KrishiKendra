@@ -1,3 +1,10 @@
+
+
+.main-container{
+    min-height: 100vh;
+    height: 100%;
+}
+
 div {
     transition: all 05s linear;
 }
@@ -34,3 +41,14 @@ div {
     color: rgba(245, 245, 245, 0.699);
     background-color: gray
 }
+
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

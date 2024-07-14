@@ -1,6 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import FormsModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PeopleComponent } from './people/people.component';
@@ -18,6 +18,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CreateUserComponent } from './popup/create-user/create-user.component';
 import { SectionModelComponent } from './dashboard/section-model/section-model.component';
 import { ProductCardComponent } from './cards/product-card/product-card.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ShowProductListComponent } from './popup/show-product-list/show-product-list.component';
 
 
 @NgModule({
@@ -32,7 +37,8 @@ import { ProductCardComponent } from './cards/product-card/product-card.componen
     BillComponent,
     CreateUserComponent,
     SectionModelComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ShowProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +48,12 @@ import { ProductCardComponent } from './cards/product-card/product-card.componen
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     NgbModule,
     MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatTooltipModule,
+    FormsModule
 
   ],
   providers: [

@@ -1,7 +1,14 @@
-<section class="col-12 product-section d-flex">
+<div>
 
-    <div class="product-card">
-
+    <div class="d-flex align-items-center justify-content-center w-100">
+        <p style="font-family: Arial, Helvetica, sans-serif;font-size: 1.5rem; text-align: center;margin: 1rem 0 0 0;color: rgb(94, 87, 87);">{{sectionTitle}}</p>
+        <button type="button" class="btn btn-light" style="position: absolute;right:5%;" (click)="showAll(sectionTitle)">Show All</button>
     </div>
 
+    <section class="product-section col-12 d-flex flex-column m-0 justify-content-center align-items-center   m-0">
+<div  class="product-list ">  
+    <div class="product" *ngFor="let item of ItemList"><app-product-card [product]="item"></app-product-card></div>
+</div>
+
 </section>
+</div>
