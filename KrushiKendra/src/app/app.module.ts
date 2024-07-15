@@ -23,6 +23,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ShowProductListComponent } from './popup/show-product-list/show-product-list.component';
+import { counterReducer } from './shared/Store/reducer';
+import { WareHouseProductCardComponent } from './cards/ware-house-product-card/ware-house-product-card.component';
 
 
 @NgModule({
@@ -38,13 +40,14 @@ import { ShowProductListComponent } from './popup/show-product-list/show-product
     CreateUserComponent,
     SectionModelComponent,
     ProductCardComponent,
-    ShowProductListComponent
+    ShowProductListComponent,
+    WareHouseProductCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({couterStore:counterReducer}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     NgbModule,
     MatDialogModule,
@@ -53,7 +56,7 @@ import { ShowProductListComponent } from './popup/show-product-list/show-product
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
 
   ],
   providers: [
