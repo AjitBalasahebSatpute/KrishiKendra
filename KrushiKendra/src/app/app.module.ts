@@ -29,6 +29,7 @@ import { AdminProductComponent } from './admin-panel/admin-product/admin-product
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
     MatSortModule,
     MatPaginatorModule,
     MatPaginator,
-    MatTableModule
+    MatTableModule,
+    EffectsModule.forRoot([])
 
   ],
   providers: [
