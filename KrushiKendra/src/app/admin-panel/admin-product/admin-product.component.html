@@ -1,0 +1,43 @@
+<div class="container d-flex border flex-column justify-content-center align-items-center p-4">
+<form class="d-flex col-10 justify-content-center gap-4 custom-class" [formGroup]="productForm">
+    <div class="container-left col-4"  > 
+
+        <label for="exampleFormControlInput1" class="form-label p-0 mb-2">Product Catergory</label>
+        <select class="form-select mb-3" aria-label="Default select example" formControlName="category" (change)="sizeType()">
+           <option value="None" disabled>--- Select Fertilizer Category ---</option>
+            <option value="solid" selected>Solid Fertilizer</option>
+            <option value="liquid">Liquid Fertilizer</option>
+          </select>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product name here..." formControlName="productName">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Company Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Manufacturor details..." formControlName="companyName">
+          </div>    
+    </div>
+    <div class="container-right col-4 ">
+
+        <label for="exampleFormControlInput1" class="form-label m-0 p-0">Price</label>
+        <div class="input-group mb-3 mt-2">
+            <span class="input-group-text" id="basic-addon1">&#8377;</span>
+            <input type="text" class="form-control" placeholder="Amount " aria-label="Username" aria-describedby="basic-addon1" formControlName="price">
+          </div>
+
+          <label for="exampleFormControlInput1" class="form-label m-0 p-0" >Quantity</label>
+          <div class="input-group mb-3 mt-2">
+            <span class="input-group-text" id="basic-addon1">{{isLiquid?'In ltr':isSolid?'In grm.':'select Category'}}</span>
+            <input type="text" class="form-control" placeholder="Quantity " aria-label="Username" aria-describedby="basic-addon1" formControlName="quantity" >
+            <small class="text-danger" *ngIf="!isLiquid && !isSolid"> * First select the category to enter the quantity</small>
+          </div>
+  
+         
+    </div>
+</form>
+<div class="actions d-flex gap-2 align-items-center col-10 justify-content-end mx-4">
+    <button type="button" class="btn btn-secondary" type="buttton">Reset Inputs</button>
+    <button type="button" class="btn btn-success" type="button" (click)="onSubmit()">Submit Product</button>
+</div>
+</div>

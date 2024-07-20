@@ -17,9 +17,9 @@ export class SectionModelComponent {
   
   showAll(catergory:string){
     this.dialog.open(ShowProductListComponent,{
-      position:{top:'50px'},
-      width:'1000px',
-      height:'80%',
+      position:{top:'40px'},
+      width:'700px',
+      height:'700px',
       data:{
         catergory:catergory
       }

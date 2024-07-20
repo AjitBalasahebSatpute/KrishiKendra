@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { decrement, increment, reset } from '../shared/Store/actions';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ware-house',
@@ -13,7 +14,7 @@ export class WareHouseComponent implements OnInit{
   count !:number;
 
 
-  constructor(private store: Store<{couterStore:number}>){}
+  constructor(private store: Store<{couterStore:number}>, private router:Router){}
 
   ngOnInit(): void {
     this.store.select("couterStore").subscribe(
@@ -39,5 +40,9 @@ export class WareHouseComponent implements OnInit{
     // TODO: Dispatch a reset action
     this.store.dispatch(reset());
 
+  }
+
+  addProductRoute(){
+    this.router.navigate(['/admin'])
   }
 }

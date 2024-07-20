@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddUserComponent } from './people/add-user/add-user.component';
 import { UpdateUserComponent } from './people/update-user/update-user.component';
 import { BillComponent } from './bill/bill.component';
+import { AdminProductComponent } from './admin-panel/admin-product/admin-product.component';
 
 const routes: Routes = [
   {path:"warehouse",component:WareHouseComponent},
@@ -13,6 +14,10 @@ const routes: Routes = [
     {path:"add",component:AddUserComponent},
     {path:"update", component:UpdateUserComponent},
     {path:"",pathMatch:'full',redirectTo:"add"}
+  ]},
+  {path:"product",children:[
+    {path:"add",component:AdminProductComponent},
+    {path:"",pathMatch:'full', redirectTo:"add"}
   ]},
   {path:"bill",component:BillComponent},
   {path:"**",redirectTo:"dashboard"}
