@@ -9,8 +9,9 @@
             <option value="available" selected>In Stoock</option>
             <option value="notAvailable">Out Of Stock</option>
           </select>
+          <button type="button" class="btn btn-secondary ml-4">Fetch Product</button>
           <!-- drop down ends here -->
-          <button type="button" class="btn btn-success">Add New Product</button>
+          <a [routerLink]="['/product']"><button type="button" class="btn btn-success" >Add New Product</button></a>
           <button type="button" class="btn btn-primary">Manage Product</button>
 
           

@@ -25,6 +25,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ShowProductListComponent } from './popup/show-product-list/show-product-list.component';
 import { counterReducer } from './shared/Store/reducer';
 import { WareHouseProductCardComponent } from './cards/ware-house-product-card/ware-house-product-card.component';
+import { AdminProductComponent } from './admin-panel/admin-product/admin-product.component';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -41,7 +46,8 @@ import { WareHouseProductCardComponent } from './cards/ware-house-product-card/w
     SectionModelComponent,
     ProductCardComponent,
     ShowProductListComponent,
-    WareHouseProductCardComponent
+    WareHouseProductCardComponent,
+    AdminProductComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,12 @@ import { WareHouseProductCardComponent } from './cards/ware-house-product-card/w
     MatAutocompleteModule,
     MatTooltipModule,
     FormsModule,
+    MatSort,
+    MatSortModule,
+    MatPaginatorModule,
+    MatPaginator,
+    MatTableModule,
+    EffectsModule.forRoot([])
 
   ],
   providers: [
