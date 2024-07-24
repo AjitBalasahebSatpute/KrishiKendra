@@ -1,20 +1,19 @@
+<ng-template #successTpl>Product Added to cart</ng-template>
 <div class="container px-6 d-flex flex-column align-items-center gap-4">
+  <div class="col-12 d-flex justify-content-end mt-4 gap-3">
+    <button type="button" class="btn btn-primary" routerLink="/bill">Create Bill</button>
+    <button type="button" class="btn" style="background-color: #ae59f0; color: white;" (click)="addUser()">Add New User</button>
+  </div>
+  <!-- Action Button ends here -->
 
-    <div class="col-12 d-flex justify-content-end mt-4 gap-3">
-        <button type="button" class="btn btn-primary" routerLink="/bill">Create Bill</button>
-        <button type="button" class="btn" style="background-color: #ae59f0;color: white;" (click)="addUser()">Add New User</button>
-    </div>
-<!-- Action Button ends here -->
+  <div class="row search-section border w-100"> search section </div>
+  <!-- <button class="btn btn-success" (click)="showSuccess(successTpl)" ngbTooltip="Will disappear in 10s">Success toast</button> -->
+  <!-- Search section ends here -->
 
-<div class="row search-section border w-100">
-search section
-</div>
+  <div class="products" *ngFor="let section of productSectionList">
+    <app-section-model [sectionTitle]="section" [ItemList]="productList"></app-section-model>
+  </div>
+  <!-- products ends here -->
 
-<!-- Search section ends here -->
-
-<div class="products" *ngFor="let section of productSectionList">
-<app-section-model [sectionTitle]="section" [ItemList]="productList" ></app-section-model>
-</div>
-
-<!-- products ends here -->
+  <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
 </div>

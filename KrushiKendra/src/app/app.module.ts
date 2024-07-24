@@ -12,7 +12,7 @@ import { AllUsersComponent } from './people/all-users/all-users.component';
 import { BillComponent } from './bill/bill.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateUserComponent } from './popup/create-user/create-user.component';
@@ -23,7 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ShowProductListComponent } from './popup/show-product-list/show-product-list.component';
-import { counterReducer } from './shared/Store/reducer';
+import { counterReducer } from './shared/Store/UserStore/reducer';
 import { WareHouseProductCardComponent } from './cards/ware-house-product-card/ware-house-product-card.component';
 import { AdminProductComponent } from './admin-panel/admin-product/admin-product.component';
 import {MatSort, MatSortModule} from '@angular/material/sort';
@@ -32,6 +32,8 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
 import { EffectsModule } from '@ngrx/effects';
+import { NgTemplateOutlet } from '@angular/common';
+import { ToastsContainer } from "./popup/toastBar/toast.component";
 
 
 @NgModule({
@@ -49,13 +51,13 @@ import { EffectsModule } from '@ngrx/effects';
     ProductCardComponent,
     ShowProductListComponent,
     WareHouseProductCardComponent,
-    AdminProductComponent
+    AdminProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({couterStore:counterReducer}, {}),
+    StoreModule.forRoot({ couterStore: counterReducer }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     NgbModule,
     MatDialogModule,
@@ -71,9 +73,11 @@ import { EffectsModule } from '@ngrx/effects';
     MatPaginator,
     MatTableModule,
     HttpClientModule,
-    EffectsModule.forRoot([])
-
-  ],
+    EffectsModule.forRoot([]),
+    NgbToastModule,
+    NgTemplateOutlet,
+    ToastsContainer
+],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync()
