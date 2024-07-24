@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { decrement, increment, reset } from '../shared/Store/actions';
+import { decrement, increment, reset } from '../shared/Store/UserStore/actions';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
