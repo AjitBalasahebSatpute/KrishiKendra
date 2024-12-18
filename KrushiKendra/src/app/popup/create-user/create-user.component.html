@@ -13,26 +13,26 @@ image file.
 
 <div class="main-container container ">
 
-    <div class="user-details">
+    <form class="user-details" [formGroup]="userfrm">
 
         <div class="input-group mb-3 ">
             <span class="input-group-text" id="basic-addon1"><i class='bx bx-user' style='color:#c214d7'  ></i></span>
-            <input type="text" class="form-control" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
-            <input type="text" class="form-control mx-2" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="First Name" name="firstName" formControlName="firstName" aria-label="First Name" aria-describedby="basic-addon1">
+            <input type="text" class="form-control mx-2" placeholder="Last Name" name="lastName" formControlName="lastName" aria-label="Last Name" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class='bx bx-mobile-alt' style='color:#d7861b'  ></i></span>
-            <input type="text" class="form-control " placeholder="Mobile Number" aria-label="Mobile Number" aria-describedby="basic-addon1">
+            <input type="text" class="form-control " placeholder="Mobile Number" name="mobileNumber" formControlName="mobileNumber" aria-label="Mobile Number" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-2 ">
             <span class="input-group-text" id="basic-addon1"><i class='bx bx-home' style='color:#d32b82'  ></i></span>
-            <input type="text" class="form-control" placeholder="Village Name" aria-label="village name" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Village Name" name="villageName" formControlName="villageName" aria-label="village name" aria-describedby="basic-addon1">
         </div>
-    </div>
+    </form>
 
 <div class="actions d-flex gap-2">
     <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
-    <button type="button" class="btn btn-success">Save</button>
+    <button type="button" class="btn btn-success" (click)="saveUser()">Save</button>
  
 </div>
 </div>
